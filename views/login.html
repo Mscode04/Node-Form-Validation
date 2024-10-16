@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ms Group of Companies</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Login to Ms Group of Companies</h1>
+        <p>Enter your credentials to login</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="/sub" method="post" role="form">
+                <legend>Login</legend>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required>
+                    <small class="form-text text-muted">Please enter a valid email address.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="pw">Password</label>
+                    <input type="password" class="form-control" name="pw" id="pw" placeholder="Password" required minlength="6">
+                    
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

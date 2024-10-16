@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Ms Form</h1>
+        <p>Welcome to Ms Group of Companies - Shaheen</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="/up" method="post" role="form" enctype="application/x-www-form-urlencoded">
+                <legend>Enter Registration Information Here</legend>
+
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pw">Password</label>
+                <!-- Display error message below the confirm password field -->
+                {{#if errorMessage}}
+                    <div style="color: red;">{{errorMessage}}</div>
+                {{/if}}
+                    <input type="password" class="form-control" name="pw" id="pw" minlength="6" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpw">Confirm Password</label>
+                    <input type="password" class="form-control" name="cpw" id="cpw" minlength="6" required>
+                </div>
+
+                <div class="div"></div>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

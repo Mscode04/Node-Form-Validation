@@ -30,11 +30,20 @@
                 <div class="form-group">
                     <label for="pw">Password</label>
                     <input type="password" class="form-control" name="pw" id="pw" placeholder="Password" required minlength="6">
-                    
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <!-- Correct Handlebars block for error message -->
+                {{#if Message}}
+                <div style="color: red; margin-bottom: 5px;">{{Message}}</div>
+                {{/if}}
+
+                <button type="submit" class="btn btn-primary" style="margin-top: 5px;">Login</button>
             </form>
+
+            <!-- Registration Link -->
+            <div class="mt-3">
+                <p>If you are not registered, <a href="/">click here to sign up</a>.</p>
+            </div>
         </div>
     </div>
 </div>

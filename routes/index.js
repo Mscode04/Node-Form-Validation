@@ -4,9 +4,16 @@ const { MongoClient } = require('mongodb');
 const path = require('path');
 const bcrypt = require('bcrypt'); 
 
+// router.get('/login', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../views/login.html')); 
+// });
+
+
 router.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/login.html')); 
+  res.render('login');  
 });
+
+
 router.get('/homee', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/hm.html')); 
 });
@@ -44,8 +51,9 @@ router.post('/up', async function (req, res) {
     if (arremail.includes(req.body.email)) {
       console.log("Login");
       return res.redirect('/login'); 
-    } else {
-      // Hash password before storing it
+    } 
+   
+    else {
       const hashedPassword = await bcrypt.hash(req.body.pw, 10);
       const userData = {
         first_name:req.body.first_name,
@@ -76,6 +84,7 @@ router.post('/sub', async function (req, res) {
     const db = client.db('dex'); 
     const users = await db.collection('user').find({}).toArray();
 
+   
     var arremail = [];
     for (let i = 0; i < users.length; i++) {
       arremail.push(users[i].email); 
@@ -83,15 +92,29 @@ router.post('/sub', async function (req, res) {
 
     let index = arremail.indexOf(req.body.email);
     if (index === -1) {
-      return res.redirect('/login');
+      return res.render('login',{ Message: 'Email Not Found' });; 
     }
+
+
+
+
+    if (arremail.includes(req.body.email)) {
+    }
+    else{
+      return res.render('login',{ Message: 'NOt Found User' });; 
+    }
+
+
+
+
 
     const isMatch = await bcrypt.compare(req.body.pw, users[index].pw);
 
     if (isMatch) {
       return res.redirect('/homee'); 
+      
     } else {
-      return res.redirect('/login'); 
+      return res.render('login',{ Message: 'Password Not Found' });; 
     }
 
   } catch (err) {

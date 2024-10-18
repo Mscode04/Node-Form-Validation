@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 
 
 var app = express();
+app.set('view engine', 'hbs');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
